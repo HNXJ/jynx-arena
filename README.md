@@ -1,25 +1,10 @@
-# gamma-arena
+# jynx-arena
 
-Read-only frontend client of the versioned API and event stream.
+Read-only frontend for the jynx game: map, players, leaderboard, replays.
 
-Proposed future name: **jynx-arena** (proposal, not renamed yet)
+Part of the jynx game: [engine](https://github.com/HNXJ/jynx-engine) · [arena](https://github.com/HNXJ/jynx-arena) · [rules](https://github.com/HNXJ/jynx-rules) · [science](https://github.com/HNXJ/jynx-science) · [lab](https://github.com/HNXJ/jynx-lab) · [judge](https://github.com/HNXJ/jynx-judge) · [world](https://github.com/HNXJ/jynx-world)
 
-## Place in the 7-repo layout
-
-Plane: **ARENA**. See [HNXJ/jynx-arena](https://github.com/HNXJ/jynx-arena) and its [architecture](https://github.com/HNXJ/jynx-arena/blob/main/docs/protocol/ARCHITECTURE.md) (ARENA, RULES, SCIENCE, LAB, ENGINE, JUDGE, WORLD). The current jynx-arena runtime is proposed to become **jynx-engine**; **jynx-world** (event ledger, projections) is a new proposed repo.
-
-## Holds today
-
-- React + TypeScript + Vite app under `src/` (components, api, view-models, registry).
+- React + TypeScript + Vite app in `src/`.
 - `docs/ARCHITECTURE.md`, `docs/issue-drafts/`, `MIGRATION.md`.
-- `artifacts/generated/`.
 
-## Shared root layout (target, not yet applied)
-
-`artifacts/`, `docs/`, `src/`, `schemas/`, `tests/`, `tournaments/`, `README.md` — see [SHARED_ROOT_LAYOUT](https://github.com/HNXJ/jynx-arena/blob/main/docs/protocol/SHARED_ROOT_LAYOUT.md).
-
-## Truth safety
-
-A Judge PASS means a submission met a rubric under a protocol version; it is not scientific truth.
-
-Ignore rules: `.DS_Store`, `*.npy`, `*.mat` are ignored; `*.html` is not (frontend project).
+Formerly gamma-arena.
