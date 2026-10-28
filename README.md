@@ -1,89 +1,25 @@
 # gamma-arena
 
-## Role in Gamma Labyrinth
-Observation UI/browser validation; no hardcoded unverified scientific truth.
+Read-only frontend client of the versioned API and event stream.
 
-## Plane Classification
-Observation Plane.
+Proposed future name: **jynx-arena** (proposal, not renamed yet)
 
-## Truth-Safety Note
-`truth_mode: truth_safe_unverified`. This repository provides visualization but does not store scientific truth.
+## Place in the 7-repo layout
 
-## Coordination
-Refer to GitHub Project `gamma` for tasks and issues.
+Plane: **ARENA**. See [HNXJ/jynx-arena](https://github.com/HNXJ/jynx-arena) and its [architecture](https://github.com/HNXJ/jynx-arena/blob/main/docs/protocol/ARCHITECTURE.md) (ARENA, RULES, SCIENCE, LAB, ENGINE, JUDGE, WORLD). The current jynx-arena runtime is proposed to become **jynx-engine**; **jynx-world** (event ledger, projections) is a new proposed repo.
 
-## Guidelines
-Agents must verify branch/status before work.
+## Holds today
 
-## Ignore Rules
-This repository ignores `.DS_Store`, `*.npy`, and `*.mat`. (Note: `*.html` is NOT ignored as it is a frontend project).
+- React + TypeScript + Vite app under `src/` (components, api, view-models, registry).
+- `docs/ARCHITECTURE.md`, `docs/issue-drafts/`, `MIGRATION.md`.
+- `artifacts/generated/`.
 
----
+## Shared root layout (target, not yet applied)
 
-Read-only operator console for the live Gamma Labyrinth runtime.
+`artifacts/`, `docs/`, `src/`, `schemas/`, `tests/`, `tournaments/`, `README.md` — see [SHARED_ROOT_LAYOUT](https://github.com/HNXJ/jynx-arena/blob/main/docs/protocol/SHARED_ROOT_LAYOUT.md).
 
-## Status
+## Truth safety
 
-Under construction.
+A Judge PASS means a submission met a rubric under a protocol version; it is not scientific truth.
 
-## Purpose
-
-`gamma-arena` is a separate viewer application for the live `gamma` runtime. Its job is to render authoritative Labyrinth state, progression, persistence, agent activity, and debugging proof without mutating the scientific game.
-
-## Scope
-
-This repository will provide:
-
-* operator dashboards
-* progression views
-* per-agent activity panels
-* persistence/recovery panels
-* raw log and event inspection
-* grounded/degraded/inferred truth labeling
-
-## Non-Goals
-
-This repository will not:
-
-* run the scientific game
-* edit live runtime state
-* activate patches
-* write mailbox messages
-* restart backend services
-* parse freeform logs as its primary semantic contract
-
-## Architecture
-
-Source of truth remains in `gamma` on the Office Mac.
-
-Planned flow:
-
-`gamma runtime -> read-only API/events -> SSH tunnel or proxy -> gamma-arena viewer`
-
-## Read-Only Contract
-
-The viewer will consume structured endpoints for:
-
-* status
-* progression
-* agents
-* persistence
-* health
-* event stream
-* raw logs
-
-## Safety Model
-
-`gamma-arena` is read-only by design. It must never be able to halt, mutate, or steer the live Labyrinth directly.
-
-## Migration Plan
-
-1. Create repo and freeze purpose
-2. Stabilize backend read-only contracts in `gamma`
-3. Build standalone viewer skeleton here
-4. Connect through SSH-forwarded live endpoints
-5. Iterate toward the full operator console
-
-## Coordination
-
-This repository follows the [GAMMA-BUS Coordination Doctrine](GEMINI.md). Agents should refer to `GEMINI.md` for specific instructions and coordination rules.
+Ignore rules: `.DS_Store`, `*.npy`, `*.mat` are ignored; `*.html` is not (frontend project).
